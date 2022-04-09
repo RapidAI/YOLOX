@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# Copyright (c) 2014-2021 Megvii Inc. All rights reserved.
+# Copyright (c) Megvii Inc. All rights reserved.
 
 import os
 import random
@@ -124,6 +124,7 @@ class Exp(BaseExp):
 
         self.model.apply(init_yolo)
         self.model.head.initialize_biases(1e-2)
+        self.model.train()
         return self.model
 
     def get_data_loader(
